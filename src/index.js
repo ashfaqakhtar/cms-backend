@@ -1,40 +1,52 @@
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
+// import app from "./app.js";
+// import connectDB from "./db/dbConnection.js";
+
+
+// // imoprt all routes
+// import userRoutes from './routes/user.route.js'
+// import blogRoutes from './routes/blog.route.js'
+// import commentRoutes from './routes/comment.route.js'
+// import categoryRoutes from './routes/category.routes.js'
+// import likeRoutes from "./routes/like.route.js"
+
+
+// dotenv.config({
+//   path: "./.env",
+// });
+
+
+// const PORT = process.env.PORT || 8000;
+
+
+// connectDB()
+//   .then(() => {
+//     app.listen(PORT, () => {
+//       console.log(`✅ Server running on http://localhost:${PORT}`);
+//     });
+//   })
+//   .catch((error) => {
+//     console.error("❌ MongoDB Connection Error:", error.message);
+//   });
+
+
+
+// // User Routes
+
+// app.use("/api/v1/users", userRoutes);
+// app.use("/api/v1/blogs", blogRoutes);
+// app.use("/api/v1/comments", commentRoutes);
+// app.use("/api/v1/categories", categoryRoutes);
+// app.use("/api/v1/likes", likeRoutes);
+
+
 import app from "./app.js";
 import connectDB from "./db/dbConnection.js";
 
+const PORT = process.env.PORT || 5000;
 
-// imoprt all routes
-import userRoutes from './routes/user.route.js'
-import blogRoutes from './routes/blog.route.js'
-import commentRoutes from './routes/comment.route.js'
-import categoryRoutes from './routes/category.routes.js'
-import likeRoutes from "./routes/like.route.js"
-
-
-dotenv.config({
-  path: "./.env",
-});
-
-
-const PORT = process.env.PORT || 8000;
-
-
-connectDB()
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`✅ Server running on http://localhost:${PORT}`);
-    });
-  })
-  .catch((error) => {
-    console.error("❌ MongoDB Connection Error:", error.message);
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server running on ${PORT}`);
   });
-
-
-
-// User Routes
-
-app.use("/api/v1/users", userRoutes);
-app.use("/api/v1/blogs", blogRoutes);
-app.use("/api/v1/comments", commentRoutes);
-app.use("/api/v1/categories", categoryRoutes);
-app.use("/api/v1/likes", likeRoutes);
+});
