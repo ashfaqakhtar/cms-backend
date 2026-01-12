@@ -44,11 +44,18 @@ import likeRoutes from "./routes/like.route.js";
 const app = express();
 
 // middleware
+// app.use(cors({
+//   origin: process.env.BASE_URL || "*",
+//   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//   credentials: true
+// }));
+
+// core for testing
 app.use(cors({
-  origin: process.env.BASE_URL || "*",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  origin: true,
   credentials: true
 }));
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
